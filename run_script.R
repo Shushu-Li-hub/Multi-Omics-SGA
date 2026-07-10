@@ -19,7 +19,7 @@ metagenomic_count <- read_xlsx(paste0(metagenomic_dir, '/1_Species_count_format.
 # Unigenes
 Unigenes_abund <- read.table(paste0(metagenomic_dir, '/4_Unigenes_abund.txt'), header = TRUE)
 # clinical data
-metadata <- read_xlsx(paste0(metadata_dir, '/meta_raw_filter.xlsx'))
+metadata <- read_xlsx(paste0(metadata_dir, '/meta_raw.xlsx'))
 
 
 # Get the abundance 
