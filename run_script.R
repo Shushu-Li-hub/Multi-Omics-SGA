@@ -56,7 +56,7 @@ sum(metabolomic_pos_abun[['Average_Mean']])
 Unigenes_abund[['Average_Mean']] <- rowMeans(Unigenes_abund[, grepl('AGA|SGA', colnames(Unigenes_abund))])
 sum(Unigenes_abund[['Average_Mean']])
 
-# Filter: Only species or KOs with an average relative abundance above 10^−7(0.00001%) were considered in the analyses.
+# Filter: species or KOs with an average relative abundance above 10^−7(0.00001%) were considered in the analyses.
 metabolomic_pos_filter <- metabolomic_pos_abun[metabolomic_pos_abun$Average_Mean > 0.00001, ]
 metabolomic_neg_filter <- metabolomic_neg_abun[metabolomic_neg_abun$Average_Mean > 0.00001, ]
 metagenomic_filter <- metagenomic_abun[metagenomic_abun$Average_Mean > 0.00001, ]
