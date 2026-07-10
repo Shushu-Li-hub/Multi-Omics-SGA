@@ -20,9 +20,7 @@ metagenomic_count <- read_xlsx(paste0(metagenomic_dir, '/1_Species_count_format.
 Unigenes_abund <- read.table(paste0(metagenomic_dir, '/4_Unigenes_abund.txt'), header = TRUE)
 # clinical data
 metadata <- read_xlsx(paste0(metadata_dir, '/meta_raw_filter.xlsx'))
-# primary covariates 
-primary_covariates <- c('SampleID', 'ga_week', 'Chorioamnionitis', 'Cesarean', 'intracranial_hemorrhage', 'neonatal_hyperbilirubinemia', 'intravenous_nutrition', 'congenital_heart_disease')
-metadata_covariates <- metadata[, primary_covariates]
+
 
 # Get the abundance 
 colnames(metabolomic_postive)
