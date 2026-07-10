@@ -7,8 +7,8 @@ AGA_colour_fill_alpha_diversity <- "#7EC0EE"
 SGA_colour_fill_alpha_diversity <- "#EEA2AD"
 AGA_colour_Veen <- "#1E90FF"
 SGA_colour_Veen <- "#FF6A6A"
-AGA_colour_PCA <- "#4876FF"
-SGA_colour_PCA  <- "#FF4040"
+AGA_colour_NMDS <- "#4876FF"
+SGA_colour_NMDS  <- "#FF4040"
 AGA_colour_LDA  <- "#00008B"
 SGA_colour_LDA  <- "#8B0000"
 AGA_colour_LEFSE  <- "blue"
@@ -171,11 +171,11 @@ R2_text
 stress_text <- paste("Stress  =", round(stress, 4))
 stress_text
 
-# Plot PCA results with two groups colored in red and blue
+# Plot NMDS results with two groups colored in red and blue
 p <- ggplot(df, aes(x = MDS1, y= MDS2, color = Groups)) +
   geom_point(size = 3) +
   stat_ellipse(aes(fill = Groups), level = 0.95, type = "norm", geom = "polygon", alpha = 0.25, show.legend = FALSE) +
-  scale_color_manual(values = c("SGA" = SGA_colour_PCA, "AGA"= AGA_colour_PCA)) +
+  scale_color_manual(values = c("SGA" = SGA_colour_NMDS, "AGA"= AGA_colour_NMDS)) +
   labs(title = paste0("NMDS Analysis (", stress_text, ")"),
        x = paste0("NMDS1"),
        y = paste0("NMDS2"),
@@ -256,7 +256,6 @@ area <- getZones("-1")
 transparent_color <- adjustcolor(veen_color[['SGA']], alpha.f = 0.6)
 polygon(area[[1]], col = transparent_color, lty = "blank")
 # intersect counts
-veen_count$counts <- c(0,  758, 189, 3572)  # 
 for (variable in veen_count$combination[2:nrow(veen_count)]) {
   centroid <- getCentroid(getZones(variable))[[1]]
   count_value <- veen_count[veen_count$combination == variable, ][['counts']]
