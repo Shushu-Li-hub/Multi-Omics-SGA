@@ -1,6 +1,6 @@
 
 save_dir <- 'H:/LSS/save_result'
-############ Step1. Data process ###################
+############ Data process ###################
 library(readxl)
 # Data preprocessed
 metabolomic_dir <- 'H:/LSS/data/metabolomic'
