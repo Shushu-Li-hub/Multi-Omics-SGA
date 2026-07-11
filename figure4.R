@@ -202,11 +202,6 @@ relations_species
 Taxa_filter_select[['Sum']] <- rowSums(Taxa_filter_select[, c(AGA_samples, SGA_samples)])
 Taxa_filter_select <- Taxa_filter_select[order(Taxa_filter_select$Sum, decreasing = TRUE), ]
 Select_speceis <- Taxa_filter_select$Species[1:50]
-# not interest
-Select_speceis <- Select_speceis[!Select_speceis %in% c('s__Clostridium_saccharobutylicum', 
-                                                        's__Clostridium_saccharoperbutylacetonicum', 
-                                                        's__Actinomyces_sp._oral_taxon_181',
-                                                        "s__Clostridium_sp._DSM_8431")]
 merge_relations <- filter_output_merge_relations[filter_output_merge_relations$Microbial_species %in% Select_speceis, ]
 merge_relations <- merge_relations[merge_relations$Functions %in% Unigenes_Difference$id, ]
 unique(merge_relations$Microbial_species)
