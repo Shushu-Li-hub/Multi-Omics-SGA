@@ -59,8 +59,8 @@ colnames(phenotype_data)
 sample_dir <- 'H:/LSS/data'
 sample_origin <- read_excel(paste0(sample_dir, '/sample_origin.xlsx'))
 colnames(sample_origin)
-phenotype_sample <- na.omit(sample_origin[!is.na(sample_origin$P20230730001_metagenomic), ][['Clinical_features']])
-metabolism_sample <- na.omit(sample_origin[!is.na(sample_origin$P20230730001_metagenomic), ][['P20230730002_metabolism']])
+phenotype_sample <- na.omit(sample_origin[!is.na(sample_origin$Clinical_features) & !is.na(sample_origin$P20230730002_metabolism) , ][['Clinical_features']])
+metabolism_sample <- na.omit(sample_origin[!is.na(sample_origin$Clinical_features) & !is.na(sample_origin$P20230730002_metabolism), ][['P20230730002_metabolism']])
 # 
 result <- calculate_spearman(metabolites_data, phenotype_data, metabolism_sample, phenotype_sample)
 database$metabiolites_phenotype$spearman_pvalue <- result[["pvalue"]]
