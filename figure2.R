@@ -102,8 +102,8 @@ unigenes_kegg_info <- unigenes_kegg_info[!duplicated(unigenes_kegg_info$Query), 
 
 # Filter the unigenes in kos
 Unigenes_kos_abun <- merge(Unigenes_abund, unigenes_kegg_info, by.x = 'Unigene_ID', by.y = 'Query')
-# identity>90% 
-Unigenes_kos_abun <- Unigenes_kos_abun[Unigenes_kos_abun$Identity >= 90, ]
+# identity>95% 
+Unigenes_kos_abun <- Unigenes_kos_abun[Unigenes_kos_abun$Identity >= 95, ]
 # Get sum of KOs.
 colnames(Unigenes_kos_abun)
 Unigenes_kos_abun <- Unigenes_kos_abun[, c('KOEntry', colnames(Unigenes_kos_abun)[grepl('AGA|SGA', colnames(Unigenes_kos_abun))])]
@@ -218,8 +218,8 @@ nrow(Unigenes_Difference)
 Unigenes_Difference_all <- Unigenes_Difference
 
 
-# The 50 most diferentially expressed
-Unigenes_Difference <- Unigenes_Difference[order(Unigenes_Difference[[test_method]]), ]
+# The top 50 most abundance
+Unigenes_Difference <- Unigenes_Difference[order(Unigenes_Difference$Sum, decreasing = TRUE), ]
 if (nrow(Unigenes_Difference) >= 50){
   Unigenes_Difference <- Unigenes_Difference[1:50, ]
 } 
