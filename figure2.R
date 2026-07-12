@@ -94,8 +94,6 @@ utils_direcotry <- 'H:/LSS/project/utils'
 source(paste0(utils_direcotry, '/new_calc_kos_diff.R'))
 # Get Kos Data
 unigenes_kegg_kos <- unigenes_kegg_df[!is.na(unigenes_kegg_df$KOEntry), ]
-
-# unigenes_kegg_kos <- unigenes_kegg_kos[unigenes_kegg_kos$Identity >= 100, ]
 colnames(unigenes_kegg_kos)
 unigenes_kegg_info <- unigenes_kegg_kos[, c('Query', 'Identity', 'KOEntry')]
 unigenes_kegg_info <- unigenes_kegg_info[!duplicated(unigenes_kegg_info$Query), ]
